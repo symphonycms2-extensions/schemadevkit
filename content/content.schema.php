@@ -31,6 +31,11 @@
 		protected function __buildSchemaList($schemas) {
 			$list = new XMLElement('ul');
 			
+			// Always include basic XHTML 1.0 Strict schema as an example
+			$filename = $this->__relativePath(EXTENSIONS . '/schemadevkit/assets/XHTML-1.0-Strict.xsd');
+			$item = $this->buildJumpItem(basename($filename),"?validate={$filename}",false);
+			$list->appendChild($item);
+
 			foreach ($schemas as $u) {
 				$filename = $this->__relativePath($u);
 				$item = $this->buildJumpItem(basename($filename),"?validate={$filename}",false);
