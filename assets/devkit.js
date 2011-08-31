@@ -1,9 +1,12 @@
 $(document).ready(function() {
 	
 	$('#jump ul li a').click(function(event) {
+		var $this = $(this);
 		event.preventDefault();
 		event.stopPropagation();
-		var $this = $(this);
+
+		// If there is a loading indicator, we are already busy and should not process a new request.
+		if($('.validation.loading').length != 0) { return; }
 		$this.append('<span class="validation loading">&#160;</span>');
 		
 		$('.validate.success,.validate.error').fadeOut('slow');
