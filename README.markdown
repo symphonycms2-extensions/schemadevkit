@@ -1,6 +1,6 @@
 # Schema Validation
 
-* Version: 0.9.0
+* Version: 0.9.1
 * Author: Remie Bolte <http://github.com/remie>
 * Build Date: 2011-08-31
 * Requirements: Symphony 2.2.3, debugdevkit extension
@@ -11,6 +11,12 @@ In it's current BETA phase, the extension relies heavily on the 'debugdevkit'. I
 ## Installation
 
 1. Download and install the 'schemadevkit' and 'debugdevkit' extensions 
+
+### 0.9.1
+
+* Fixing issue with loading indicator
+
+* Schema Validation should check output XML, not Symphony data
 
 ### 0.9.0
 
