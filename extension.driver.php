@@ -62,7 +62,7 @@
 			$item = $xml->createElement('item');
 			$item->setAttribute('name', __('Validation'));
 			$item->setAttribute('handle', 'validation');
-			//$item->setAttribute('active', (self::$active ? 'yes' : 'no'));
+			$item->setAttribute('active', (self::$active ? 'yes' : 'no'));
 
 			$parent = $xml->documentElement;
 
