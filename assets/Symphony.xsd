@@ -12,7 +12,7 @@
 	
 	<xs:complexType name="symphonyElement">
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
-			<xs:any minOccurs="0" processContents="strict" />
+			<xs:any minOccurs="0" processContents="lax" />
 		</xs:choice>
 	</xs:complexType>
 </xs:schema>
