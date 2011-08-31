@@ -14,7 +14,7 @@
 			
 			try {
 				$validator = new SchemaValidator();
-				if($validator->validate($this->_xml,(DOCROOT . $this->_view))) {
+				if($validator->validate($this->_output,(DOCROOT . $this->_view))) {
 					$result = json_encode(array('result'=>'success', 'errors' => array()));
 				} else {
 					$result = json_encode(array('result'=>'failed', 'errors' => $validator->getErrors()));

@@ -22,25 +22,27 @@
 		}
 
 		public function buildContent($wrapper) {
-			parent::buildContent($wrapper);
+			$this->_view = 'result';
 			$this->addScriptToHead(URL . '/extensions/schemadevkit/assets/devkit.js', 9126345);
 			$this->addStylesheetToHead(URL . '/extensions/schemadevkit/assets/devkit.css', 'screen', 9126346);
+			parent::buildContent($wrapper);
 		}
 
 		protected function __buildSchemaList($schemas) {
 			$list = new XMLElement('ul');
 			
-			// Always include basic Symphony schema
-			$filename = $this->__relativePath(EXTENSIONS . '/schemadevkit/assets/Symphony.xsd');
-			$item = $this->buildJumpItem(basename($filename),"?validate={$filename}",false);
-			$list->appendChild($item);
-
 			foreach ($schemas as $u) {
 				$filename = $this->__relativePath($u);
 				$item = $this->buildJumpItem(basename($filename),"?validate={$filename}",false);
 				$list->appendChild($item);
 			}
-
+			
+			if(empty($schemas)) {
+				$item = new XMLElement('li');
+				$item->appendChild(new XMLElement('span','No schema definitions found in /workspace/xsd/', array('style'=>'display:inline-block;margin-left: -240px;padding: 5px 10px 5px 260px;')));
+				$list->appendChild($item);
+			}
+			
 			return $list;
 		}
 		
